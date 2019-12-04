@@ -1,0 +1,165 @@
+{{#each employee}}
+<div class="row">
+  <div class="col-md-12">
+    <h2>{{firstName}} {{lastName}} -Employee: {{employeeNum}}</h2>
+    <hr />
+    <form method="post" action="/employee/update">
+      <input type="hidden" name="employeeNum" value="{{employeeNum}}">
+      <fieldset>
+        <legend>Personal Information</legend>
+        <div class="row">
+
+          <div class="col-md-6">
+            <div class="form-group"><label for="firstName">First Name:</label><input class="form-control" id="firstName"
+                name="firstName" type="text" value="{{firstName}}" /></div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group"><label for="lastName">Last Name:</label><input class="form-control" id="lastName"
+                name="lastName" type="text" value="{{lastName}}" />
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group"><label for="email">Email:</label><input class="form-control" id="email" name="email"
+                type="text" value="{{email}}" />
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group"><label for="SSN">Social Security Number:</label><input class="form-control" name="SSN"
+                type="text" value="{{SSN}}" readonly />
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-3">
+            <div class="form-group"><label for="addressStreet">Street Address:</label><input class="form-control" id="addressStreet"
+                name="addressStreet" type="text" value="{{addressStreet}}" />
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="form-group"><label for="addressCity">City Address:</label><input class="form-control" id="addressCity"
+                name="addressCity" type="text" value="{{addressCity}}" />
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="form-group"><label for="addressState">State Address:</label><input class="form-control" id="addressState"
+                name="addressState" type="text" value="{{addressState}}" />
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="form-group"><label for="addressPostal">Zip Code:</label><input class="form-control" id="addressPostal"
+                name="addressPostal" type="text" value="{{addressPostal}}" />
+            </div>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Company Information</legend>
+        <div class="row">
+          <div class="col-md-3">
+            {{#if isManager}}
+            <div class="form-group"><label for="isManager">Manager:</label><input class="form-control" id="isManager"
+                name="isManager" type="checkbox" value="{{isManager}}" checked />
+            </div>
+            {{else}}
+            <div class="form-group"><label for="isManager">Manager:</label><input class="form-control" id="isManager"
+                name="isManager" type="checkbox" value="{{isManager}}" />
+            </div>
+            {{/if}}
+          </div>
+
+          <div class="col-md-3">
+            <div class="form-group"><label for="employeeManagerNum">Employee's Manager Number:</label><input class="form-control"
+                id="employeeManagerNum" name="employeeManagerNum" type="text" value="{{employeeManagerNum}}" />
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="form-group"><label for="status">Status:</label>
+              {{#equal status "Full Time"}}
+              <input class="form-control" id="status" name="status" type="radio" value="Full Time" checked/>
+              <input class="form-control" id="status" name="status" type="radio" value="Part Time" />
+              {{else}}
+              <input class="form-control" id="status" name="status" type="radio" value="Full Time" />
+              <input class="form-control" id="status" name="status" type="radio" value="Part Time" checked/>
+              {{/equal}}
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="form-group"><label for="department">Department:</label>
+              <select class="form-control" id="department" name="department">
+                {{#equal department "1"}}
+                <option value="1" selected>Creative Services</option>
+                {{else}}
+                <option value="1">Creative Services</option>
+                {{/equal}}
+
+                {{#equal department "2"}}
+                <option value="2" selected>Product Development</option>
+                {{else}}
+                <option value="2">Product Development</option>
+                {{/equal}}
+
+                {{#equal department "3"}}
+                <option value="3" selected>Marketing</option>
+                {{else}}
+                <option value="2">Product Development</option>
+                {{/equal}}
+
+                {{#equal department "4"}}
+                <option value="4" selected>Strategic Planning</option>
+                {{else}}
+                <option value="2">Product Development</option>
+                {{/equal}}
+
+                {{#equal department "5"}}
+                <option value="5" selected>Accounting</option>
+                {{else}}
+                <option value="2">Product Development</option>
+                {{/equal}}
+
+                {{#equal department "6"}}
+                <option value="6" selected>Human Resources</option>
+                {{else}}
+                <option value="2">Product Development</option>
+                {{/equal}}
+
+                {{#equal department "7"}}
+                <option value="7" selected>Quality Analysis</option>
+                {{else}}
+                <option value="2">Product Development</option>
+                {{/equal}}
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group"><label for="hireDate">Hire Date:</label><input class="form-control" name="hireDate"
+                type="text" value="{{hireDate}}" readonly />
+            </div>
+          </div>
+        </div>
+      </fieldset>
+
+      <hr /><input type="submit" class="btn btn-primary pull-right" value="Update Employee" /><br /><br /><br />
+    </form>
+  </div>
+</div>
+{{else}}
+<div class="col-md-12 text-center">
+  <strong>{{message}}</strong>
+</div>
+
+{{/each}}
