@@ -14,7 +14,7 @@
     "pg": "^7.8.2",
     "pg-hstore": "^2.3.2",
     "sequ": "^0.1.7",
-    "sequelize": "^4.43.0"
+    "sequelize": "^5.15.1"
   },
   "devDependencies": {},
   "scripts": {
