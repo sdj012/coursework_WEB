@@ -1,0 +1,29 @@
+{
+  "name": "web322-app",
+  "version": "1.0.0",
+  "description": "a4",
+  "main": "server.js",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "client-sessions": "^0.8.0",
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.2",
+    "mongoose": "^5.4.22",
+    "multer": "^1.4.1",
+    "pg": "^7.8.2",
+    "pg-hstore": "^2.3.2",
+    "sequ": "^0.1.7",
+    "sequelize": "^4.43.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/username/repository.git"
+  }
+}
